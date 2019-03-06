@@ -10,6 +10,7 @@ namespace Monster_Hunter_Battle_Set
     {
         static void Main(string[] args)
         {
+            TEST
         }
     }
 }
