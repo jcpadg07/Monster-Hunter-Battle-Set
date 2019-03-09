@@ -8,9 +8,16 @@ namespace Monster_Hunter_Battle_Set
 {
     class Program
     {
+        static List<Battle_Set> _sets = new List<Battle_Set>();
+
+        // Application entry point
+
         static void Main(string[] args)
         {
-            TEST
+            UI.DisplayWelcome();
+            Console.ReadLine();
         }
+
+        
     }
 }

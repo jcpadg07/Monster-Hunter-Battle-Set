@@ -8,5 +8,11 @@ namespace Monster_Hunter_Battle_Set
 {
     class Battle_Set
     {
+        // Gets or sets the helmet of the set.
+        public string Helmet { get; set; }
+ 
+        // Gets or sets the armor of the set.
+        public string Armor { get; set; }
+
     }
 }
