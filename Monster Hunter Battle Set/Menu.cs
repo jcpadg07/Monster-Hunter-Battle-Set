@@ -8,8 +8,15 @@ namespace Monster_Hunter_Battle_Set
 {
     // Represents the application menu
     
-    class Menu
-    { 
+    internal class Menu
+    {
+        static string[] _options = new string[]
+        {
+            "Add item",
+            "View list",
+            "Quit"
+        };
 
     }
+
 }

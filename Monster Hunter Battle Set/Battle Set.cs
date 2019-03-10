@@ -15,4 +15,5 @@ namespace Monster_Hunter_Battle_Set
         public string Armor { get; set; }
 
     }
+    
 }

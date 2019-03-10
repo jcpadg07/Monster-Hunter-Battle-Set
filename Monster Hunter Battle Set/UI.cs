@@ -15,5 +15,6 @@ namespace Monster_Hunter_Battle_Set
             Console.WriteLine("  A custom list of your equipment for battle");
             Console.WriteLine("----------------------------------------------");
         }
+
     }
 }

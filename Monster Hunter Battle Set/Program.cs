@@ -15,9 +15,20 @@ namespace Monster_Hunter_Battle_Set
         static void Main(string[] args)
         {
             UI.DisplayWelcome();
-            Console.ReadLine();
+
         }
 
-        
+        // Displays the list of battle sets.
+        static void DisplaySetList()
+        {
+            
+        }
+
+        // Prompts user for set items and adds new set.
+        static void AddSet()
+        {
+            
+        }
+
     }
 }
