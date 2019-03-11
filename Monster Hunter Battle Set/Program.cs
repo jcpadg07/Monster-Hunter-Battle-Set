@@ -16,6 +16,15 @@ namespace Monster_Hunter_Battle_Set
         {
             UI.DisplayWelcome();
 
+            int option = 0;
+            while ((option = Menu.Prompt()) != 3)
+            {
+                if (option == 1)
+                    AddSet();
+                else if (option == 2)
+                    DisplaySetList();
+            }
+
         }
 
         // Displays the list of battle sets.
