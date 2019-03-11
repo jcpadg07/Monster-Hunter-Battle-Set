@@ -30,7 +30,10 @@ namespace Monster_Hunter_Battle_Set
         // Displays the list of battle sets.
         static void DisplaySetList()
         {
-            
+            Console.WriteLine("Sets");
+            Console.WriteLine("----------");
+            _sets.ForEach((set) => Console.WriteLine(set));
+            Console.WriteLine();
         }
 
         // Prompts user for set items and adds new set.
