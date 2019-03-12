@@ -39,7 +39,16 @@ namespace Monster_Hunter_Battle_Set
         // Prompts user for set items and adds new set.
         static void AddSet()
         {
-            
+            bool done = false;
+            do
+            {
+                string helmet = UI.Prompt("What's the helmet you want to use? ");
+                string armor = UI.Prompt("What's the armor you want to use? ");
+
+                _sets.Add(new Battle_Set { Helmet = helmet, Armor = armor });
+                done = UI.Prompt("Add another item? (y/n) ").ToLower() != "y";
+
+            } while (!done);
         }
 
     }

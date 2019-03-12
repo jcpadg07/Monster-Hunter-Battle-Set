@@ -13,7 +13,7 @@ namespace Monster_Hunter_Battle_Set
         static string[] _options = new string[]
         {
             "Add battle set",
-            "View list",
+            "View list of battle sets",
             "Quit"
         };
 
