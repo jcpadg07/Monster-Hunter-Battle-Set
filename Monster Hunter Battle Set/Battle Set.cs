@@ -14,11 +14,16 @@ namespace Monster_Hunter_Battle_Set
         // Gets or sets the armor of the set.
         public string Armor { get; set; }
 
-        // Returns a string with the items input.
+        // Gets or sets the weapon of the set.
+        public string Weapon { get; set; }
 
+        // Gets or sets the shield of the set.
+        public string Shield { get; set; }
+
+        // Returns a string with the items input.
         public override string ToString()
         {
-            return Helmet + " and " + Armor;
+            return Helmet + " and " + Armor + " and " + Weapon + " and " + Shield;
         }
 
     }
