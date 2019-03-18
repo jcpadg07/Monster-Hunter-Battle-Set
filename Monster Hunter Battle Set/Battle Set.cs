@@ -20,10 +20,13 @@ namespace Monster_Hunter_Battle_Set
         // Gets or sets the shield of the set.
         public string Shield { get; set; }
 
+        //Gets or sets the power of the set.
+        public int TotalPower { get; set; }
+
         // Returns a string with the items input.
         public override string ToString()
         {
-            return Helmet + " and " + Armor + " and " + Weapon + " and " + Shield;
+            return Helmet + " and " + Armor + " and " + Weapon + " and " + Shield + "with a total power of " + TotalPower + ".";
         }
 
     }

@@ -36,6 +36,9 @@ namespace Monster_Hunter_Battle_Set
             Console.WriteLine("Sets");
             Console.WriteLine("----------");
 
+            //Opens connection to Local SQL DB
+            //Reads all data from the Battle Set table and displays it
+
             SqlConnection sqlconn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\Users\Owner\source\repos\Monster Hunter Battle Set\Monster Hunter Battle Set\Database1.mdf';Integrated Security=True");
             sqlconn.Open();
             //SqlCommand cmd = new SqlCommand("SELECT Helmet, Armor, Weapon, Shield, 'Total Power' FROM [Battle_Set]", sqlconn);
@@ -76,11 +79,30 @@ namespace Monster_Hunter_Battle_Set
                 string armor = UI.Prompt("What's the armor you want to use? ");
                 string weapon = UI.Prompt("What's the weapon you want to use? ");
                 string shield = UI.Prompt("What's the shield you want to use? ");
+                int totalpower = int.Parse(UI.Prompt("What's the total power of these items? "));
+                
 
-                _sets.Add(new Battle_Set { Helmet = helmet, Armor = armor, Weapon = weapon, Shield = shield });
+                _sets.Add(new Battle_Set { Helmet = helmet, Armor = armor, Weapon = weapon, Shield = shield, TotalPower = totalpower});
                 done = UI.Prompt("Add another item? (y/n) ").ToLower() != "y";
+                SqlConnection sqlconn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\Users\Owner\source\repos\Monster Hunter Battle Set\Monster Hunter Battle Set\Database1.mdf';Integrated Security=True");
+                sqlconn.Open();
+                SqlCommand querySaveBattleSet = new SqlCommand();
+                querySaveBattleSet.CommandText = "SET IDENTITY_INSERT [Battle_Set] ON";
+                querySaveBattleSet.Connection = sqlconn;
+                querySaveBattleSet.CommandText = "INSERT into [Battle_Set](Helmet, Armor, Weapon, Shield, TotalPower) VALUES(@Helmet, @Armor, @Weapon, @Shield, @TotalPower)";
+                querySaveBattleSet.Parameters.Add(new SqlParameter("@Helmet", helmet));
+                querySaveBattleSet.Parameters.Add(new SqlParameter("@Armor", armor));
+                querySaveBattleSet.Parameters.Add(new SqlParameter("@Weapon", weapon));
+                querySaveBattleSet.Parameters.Add(new SqlParameter("@Shield", shield));
+                querySaveBattleSet.Parameters.Add(new SqlParameter("@TotalPower", totalpower));
+                querySaveBattleSet.ExecuteNonQuery();
+                sqlconn.Close();
+                
 
             } while (!done);
+
+            
+
         }
 
     }
