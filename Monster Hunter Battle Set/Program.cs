@@ -65,7 +65,7 @@ namespace Monster_Hunter_Battle_Set
             //    Console.ReadLine();
             //}
 
-            _sets.ForEach((set) => Console.WriteLine(set));
+            //_sets.ForEach((set) => Console.WriteLine(set));
             Console.WriteLine();
         }
 
