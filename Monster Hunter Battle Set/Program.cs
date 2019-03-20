@@ -33,15 +33,15 @@ namespace Monster_Hunter_Battle_Set
         // Displays the list of battle sets.
         static void DisplaySetList()
         {
-            Console.WriteLine("Sets");
-            Console.WriteLine("----------");
+            Console.WriteLine("                     Sets                     ");
+            Console.WriteLine("______________________________________________");
 
             //Opens connection to Local SQL DB
             //Reads all data from the Battle Set table and displays it
 
             SqlConnection sqlconn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\Users\Owner\source\repos\Monster Hunter Battle Set\Monster Hunter Battle Set\Database1.mdf';Integrated Security=True");
             sqlconn.Open();
-            //SqlCommand cmd = new SqlCommand("SELECT Helmet, Armor, Weapon, Shield, 'Total Power' FROM [Battle_Set]", sqlconn);
+            //SqlCommand cmd = new SqlCommand("SELECT Helmet, Armor, Weapon, Shield, TotalPower FROM [Battle_Set]", sqlconn);
             SqlDataAdapter da = new SqlDataAdapter("SELECT Helmet, Armor, Weapon, Shield, TotalPower  FROM [Battle_Set]", sqlconn);
             DataSet ds = new DataSet();
 
@@ -50,14 +50,14 @@ namespace Monster_Hunter_Battle_Set
             //SqlDataReader reader = cmd.ExecuteReader();
             //while (reader.Read())
             //{
-            //    Console.WriteLine(reader.GetString(0) + " and " + reader.GetString(1) + " and " + reader.GetString(2) + " and " + reader.GetString(3) + " with " + reader.GetSqlValue(4));
+            //    Console.WriteLine(reader.GetString(0) + " and " + reader.GetString(1) + " and " + reader.GetString(2) + " and " + reader.GetString(3) + " with " + reader.GetInt32(4));
             //}
             //reader.Close();
-            sqlconn.Close();
+            //sqlconn.Close();
 
             foreach(DataRow reader in ds.Tables[0].Rows)
             {
-                Console.WriteLine(reader["Helmet"] + " and " + reader["Armor"] + " and " + reader["Weapon"] + " and " + reader["Shield"] + " with " + reader["TotalPower"]);
+                Console.WriteLine(reader["Helmet"] + " and " + reader["Armor"] + " and " + reader["Weapon"] + " and " + reader["Shield"] + " with " + reader["TotalPower"] + " total points.");
             }
 
             //if (Debugger.IsAttached)

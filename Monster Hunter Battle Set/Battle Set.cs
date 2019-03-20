@@ -26,7 +26,7 @@ namespace Monster_Hunter_Battle_Set
         // Returns a string with the items input.
         public override string ToString()
         {
-            return Helmet + " and " + Armor + " and " + Weapon + " and " + Shield + "with a total power of " + TotalPower + ".";
+            return Helmet + " and " + Armor + " and " + Weapon + " and " + Shield + " with a total power of " + TotalPower + " points.";
         }
 
     }

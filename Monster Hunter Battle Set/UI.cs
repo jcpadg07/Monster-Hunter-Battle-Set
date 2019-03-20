@@ -11,9 +11,14 @@ namespace Monster_Hunter_Battle_Set
         // Displays the welcome text.
         internal static void DisplayWelcome()
         {
-            Console.WriteLine("^^^^^^^^^^^^^^^^^^Battle Set^^^^^^^^^^^^^^^^^^");
-            Console.WriteLine("  A custom list of your equipment for battle  ");
-            Console.WriteLine("----------------------------------------------");
+            Console.WriteLine("<><><><><><> Battle Set Maker <><><><><><><><>");
+            Console.WriteLine("______________________________________________");
+            Console.WriteLine("                                              ");
+            Console.WriteLine("     Create your own battle sets offline      ");
+            Console.WriteLine("______________________________________________");
+            Console.WriteLine("                                              ");
+            Console.WriteLine("<><><><><><><><><><><><><><><><><><><><><><><>");
+            Console.WriteLine("                                              ");
         }
 
         // Prompts the user to provide an option.

@@ -12,8 +12,8 @@ namespace Monster_Hunter_Battle_Set
     {
         static string[] _options = new string[]
         {
-            "Add battle set",
-            "View list of battle sets",
+            "Add battle set to list",
+            "View list of all battle sets",
             "Quit"
         };
 
@@ -40,6 +40,11 @@ namespace Monster_Hunter_Battle_Set
                 option = UI.Prompt($"Please select an option (1-{_options.Length}): ");
                 bool canParse = int.TryParse(option, out parsedOption);
                 valid = canParse && parsedOption > 0 && parsedOption <= 3;
+
+                if (!valid)
+                {
+                    Console.WriteLine("'" + option + "' is not a valid option. Please provide a number 1-3");
+                }
 
             }
             while (!valid);
