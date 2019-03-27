@@ -8,7 +8,6 @@ namespace Monster_Hunter_Battle_Set
 {
     class Battle_Set
     {
-        private int? totalpower;
 
         // Gets or sets the helmet of the set.
         public string Helmet { get; set; }
@@ -33,13 +32,13 @@ namespace Monster_Hunter_Battle_Set
         //    TotalPower = totalpower;
         //}
 
-        public Battle_Set(string helmet, string armor, string weapon, string shield, int? totalpower)
+        public Battle_Set(string helmet, string armor, string weapon, string shield, int totalpower)
         {
             Helmet = helmet;
             Armor = armor;
             Weapon = weapon;
             Shield = shield;
-            this.totalpower = totalpower;
+            this.TotalPower = totalpower;
         }
 
         // Returns a string with the items input.

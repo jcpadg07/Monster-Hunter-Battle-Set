@@ -67,7 +67,7 @@ namespace Monster_Hunter_Battle_Set
                 string armor = reader["Armor"] as string;
                 string weapon = reader["Weapon"] as string;
                 string shield = reader["Shield"] as string;
-                int? totalpower = reader["TotalPower"] as int?;
+                int totalpower = (int)reader["TotalPower"];
 
                 Battle_Set battleset = new Battle_Set(helmet, armor, weapon, shield, totalpower);
 
