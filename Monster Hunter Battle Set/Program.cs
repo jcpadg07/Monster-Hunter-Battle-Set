@@ -11,6 +11,7 @@ namespace Monster_Hunter_Battle_Set
 {
     class Program
     {
+        //private static string connectionString = ""; 
         static List<Battle_Set> _sets = new List<Battle_Set>();
 
         // Application entry point
@@ -110,7 +111,7 @@ namespace Monster_Hunter_Battle_Set
 
                 //_sets.Add(new Battle_Set { Helmet = helmet, Armor = armor, Weapon = weapon, Shield = shield, TotalPower = totalpower});
                 done = UI.Prompt("Add another item? (y/n) ").ToLower() != "y";
-                SqlConnection sqlconn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\Users\Owner\source\repos\Monster Hunter Battle Set\Monster Hunter Battle Set\Database1.mdf';Integrated Security=True");
+                SqlConnection sqlconn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|Database1.mdf;Integrated Security=True");
                 sqlconn.Open();
                 SqlCommand querySaveBattleSet = new SqlCommand();
                 querySaveBattleSet.CommandText = "SET IDENTITY_INSERT [Battle_Set] ON";
@@ -126,10 +127,6 @@ namespace Monster_Hunter_Battle_Set
                 
 
             } while (!done);
-
-            
-
         }
-
     }
 }
