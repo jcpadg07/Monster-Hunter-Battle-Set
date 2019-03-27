@@ -39,7 +39,7 @@ namespace Monster_Hunter_Battle_Set
             //Opens connection to Local SQL DB
             //Reads all data from the Battle Set table and displays it
 
-            SqlConnection sqlconn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\Users\Owner\source\repos\Monster Hunter Battle Set\Monster Hunter Battle Set\Database1.mdf';Integrated Security=True");
+            SqlConnection sqlconn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|Database1.mdf;Integrated Security=True");
             //sqlconn.Open();
             //SqlCommand cmd = new SqlCommand("SELECT Helmet, Armor, Weapon, Shield, TotalPower FROM [Battle_Set]", sqlconn);
             SqlDataAdapter da = new SqlDataAdapter("SELECT Helmet, Armor, Weapon, Shield, TotalPower  FROM [Battle_Set]", sqlconn);
