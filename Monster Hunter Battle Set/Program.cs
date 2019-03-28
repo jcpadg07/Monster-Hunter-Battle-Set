@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using System.Diagnostics;
+using System.IO;
+using System.Configuration;
+
 
 namespace Monster_Hunter_Battle_Set
 {
@@ -39,8 +42,10 @@ namespace Monster_Hunter_Battle_Set
 
             //Opens connection to Local SQL DB
             //Reads all data from the Battle Set table and displays it
-
-            SqlConnection sqlconn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|Database1.mdf;Integrated Security=True");
+            var connection = ConfigurationManager.ConnectionStrings["Monster_Hunter_Battle_Set_ConnectionString"].ToString();
+            //SqlConnection sqlconn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = 'C:\Users\Owner\source\repos\Monster Hunter Battle Set\Monster Hunter Battle Set\Database1.mdf'; Integrated Security = True");
+            SqlConnection sqlconn = new SqlConnection(connection);
+            //SqlConnection sqlconn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\Users\Owner\source\repos\Monster Hunter Battle Set\Monster Hunter Battle Set\Database1.mdf';Integrated Security=True");
             //sqlconn.Open();
             //SqlCommand cmd = new SqlCommand("SELECT Helmet, Armor, Weapon, Shield, TotalPower FROM [Battle_Set]", sqlconn);
             SqlDataAdapter da = new SqlDataAdapter("SELECT Helmet, Armor, Weapon, Shield, TotalPower  FROM [Battle_Set]", sqlconn);
@@ -107,11 +112,20 @@ namespace Monster_Hunter_Battle_Set
                 string shield = UI.Prompt("What's the name of the shield you want to use? ");
                 
                 int totalpower = int.Parse(UI.Prompt("What's the total power of these items? "));
-                
 
+                //string path = (@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = 'C:\Users\Owner\source\repos\Monster Hunter Battle Set\Monster Hunter Battle Set\Database1.mdf'; Integrated Security = True");
+                //string path = "Database1.mdf";
+                //string fullPath = System.IO.Path.GetFullPath(path);
+                //FileInfo dbfile = new FileInfo(path);
                 //_sets.Add(new Battle_Set { Helmet = helmet, Armor = armor, Weapon = weapon, Shield = shield, TotalPower = totalpower});
                 done = UI.Prompt("Add another item? (y/n) ").ToLower() != "y";
-                SqlConnection sqlconn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|Database1.mdf;Integrated Security=True");
+
+                //string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+                //string path = (Path.GetDirectoryName(executable));
+                //AppDomain.CurrentDomain.SetData("DataDirectory", path);
+                var connection = ConfigurationManager.ConnectionStrings["Monster_Hunter_Battle_Set_ConnectionString"].ToString();
+                //SqlConnection sqlconn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = 'C:\Users\Owner\source\repos\Monster Hunter Battle Set\Monster Hunter Battle Set\Database1.mdf'; Integrated Security = True");
+                SqlConnection sqlconn = new SqlConnection(connection);
                 sqlconn.Open();
                 SqlCommand querySaveBattleSet = new SqlCommand();
                 querySaveBattleSet.CommandText = "SET IDENTITY_INSERT [Battle_Set] ON";
