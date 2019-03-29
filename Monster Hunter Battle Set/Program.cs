@@ -14,7 +14,7 @@ namespace Monster_Hunter_Battle_Set
 {
     class Program
     {
-        //private static string connectionString = ""; 
+        
         static List<Battle_Set> _sets = new List<Battle_Set>();
 
         // Application entry point
@@ -43,30 +43,17 @@ namespace Monster_Hunter_Battle_Set
             //Opens connection to Local SQL DB
             //Reads all data from the Battle Set table and displays it
             var connection = ConfigurationManager.ConnectionStrings["Monster_Hunter_Battle_Set_ConnectionString"].ToString();
-            //SqlConnection sqlconn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = 'C:\Users\Owner\source\repos\Monster Hunter Battle Set\Monster Hunter Battle Set\Database1.mdf'; Integrated Security = True");
+            
             SqlConnection sqlconn = new SqlConnection(connection);
-            //SqlConnection sqlconn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\Users\Owner\source\repos\Monster Hunter Battle Set\Monster Hunter Battle Set\Database1.mdf';Integrated Security=True");
-            //sqlconn.Open();
-            //SqlCommand cmd = new SqlCommand("SELECT Helmet, Armor, Weapon, Shield, TotalPower FROM [Battle_Set]", sqlconn);
+            
             SqlDataAdapter da = new SqlDataAdapter("SELECT Helmet, Armor, Weapon, Shield, TotalPower  FROM [Battle_Set]", sqlconn);
             DataSet ds = new DataSet();
 
             da.Fill(ds);
 
-            //SqlDataReader reader = cmd.ExecuteReader();
-            //while (reader.Read())
-            //{
-            //    Console.WriteLine(reader.GetString(0) + " and " + reader.GetString(1) + " and " + reader.GetString(2) + " and " + reader.GetString(3) + " with " + reader.GetInt32(4));
-            //}
-            //reader.Close();
-            //sqlconn.Close();
+            
 
-            //foreach (DataRow reader in ds.Tables[0].Rows)
-            //{
-            //    Console.WriteLine(reader["Helmet"] + " and " + reader["Armor"] + " and " + reader["Weapon"] + " and " + reader["Shield"] + " with " + reader["TotalPower"] + " total points.");
-            //}
-
-            //UNSURE
+            //Read and stores rows to be displayed in strings
             foreach (DataRow reader in ds.Tables[0].Rows)
             {
                 string helmet = reader["Helmet"] as string;
@@ -81,17 +68,7 @@ namespace Monster_Hunter_Battle_Set
             }
 
 
-            //foreach(Battle_Set set in _sets)
-            //{
-            //    Console.WriteLine(set.ToString());
-            //}
-
-            //if (Debugger.IsAttached)
-            //{
-            //    Console.ReadLine();
-            //}
-
-            //_sets.ForEach((set) => Console.WriteLine(set));
+            
 
         }
 
@@ -102,7 +79,7 @@ namespace Monster_Hunter_Battle_Set
             bool done = false;
             do
             {
-                
+                //Stores each answer to the question in a variable to be written to the database
                 string helmet = UI.Prompt("What's the name of the helmet you want to use? ");
                 
                 string armor = UI.Prompt("What's the name of the armor you want to use? ");
@@ -113,18 +90,11 @@ namespace Monster_Hunter_Battle_Set
                 
                 int totalpower = int.Parse(UI.Prompt("What's the total power of these items? "));
 
-                //string path = (@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = 'C:\Users\Owner\source\repos\Monster Hunter Battle Set\Monster Hunter Battle Set\Database1.mdf'; Integrated Security = True");
-                //string path = "Database1.mdf";
-                //string fullPath = System.IO.Path.GetFullPath(path);
-                //FileInfo dbfile = new FileInfo(path);
-                //_sets.Add(new Battle_Set { Helmet = helmet, Armor = armor, Weapon = weapon, Shield = shield, TotalPower = totalpower});
                 done = UI.Prompt("Add another item? (y/n) ").ToLower() != "y";
 
-                //string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
-                //string path = (Path.GetDirectoryName(executable));
-                //AppDomain.CurrentDomain.SetData("DataDirectory", path);
+                //Connection to the database to store the data
                 var connection = ConfigurationManager.ConnectionStrings["Monster_Hunter_Battle_Set_ConnectionString"].ToString();
-                //SqlConnection sqlconn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = 'C:\Users\Owner\source\repos\Monster Hunter Battle Set\Monster Hunter Battle Set\Database1.mdf'; Integrated Security = True");
+                
                 SqlConnection sqlconn = new SqlConnection(connection);
                 sqlconn.Open();
                 SqlCommand querySaveBattleSet = new SqlCommand();

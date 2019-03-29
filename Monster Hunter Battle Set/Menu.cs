@@ -33,7 +33,7 @@ namespace Monster_Hunter_Battle_Set
             bool valid = false;
             int parsedOption = 0;
             string option = string.Empty;
-
+            //Menu prompt and validation for correct menu choice
             Display();
             do
             {

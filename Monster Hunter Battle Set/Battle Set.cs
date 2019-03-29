@@ -24,13 +24,7 @@ namespace Monster_Hunter_Battle_Set
         //Gets or sets the power of the set.
         public int TotalPower { get; set; }
 
-        //public Battle_Set (string helmet, string armor, string weapon, string shield, int totalpower) {
-        //    Helmet = helmet;
-        //    Armor = armor;
-        //    Weapon = weapon;
-        //    Shield = shield;
-        //    TotalPower = totalpower;
-        //}
+        
 
         public Battle_Set(string helmet, string armor, string weapon, string shield, int totalpower)
         {
