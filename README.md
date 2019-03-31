@@ -1,4 +1,4 @@
-# Monster-Hunter-Battle-Set
+# Monster-Hunter-Battle-Set(Copy from README.md in another folder)
 A starter game companion app to create battle sets
 
 This project will be focused on creating a simple platform to create armor battle sets for use in games such as Monster Hunter.
